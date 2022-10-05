@@ -11,4 +11,8 @@ file 7-movethatfile moves the file betty from /tmp to /tmp/my_first_directory
 file 8-firstdelete deletes the file betty
 file 9-firstdirdeletion deletes the directory my_first_directory
 file 10-back changes working directory to previous directory
+file 11-lists lists all files in current directory, parent directory and /boot directory
+file 12-file_type prints out the type of file name iamafile in /tmp folder
+file 13-symbolic_link creates a symbolic link
+file14-copy_html copy all html files from current working directory to parent directory
 
