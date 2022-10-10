@@ -1,12 +1,13 @@
-#0x02 Shell Permissions
+# 0x02 Shell Permissions
 
 Project done during **Full Stack Software Engineering** at **ALX**. It aims to learn about how to grant permisons to file and group owners in **Shell**.
 
-##Files
+## Files
 
 All of the following files are scripts:
 
 | Filename | Description |
+|----------|-------------|
 | `0-current_working_directory` | Prints the path to your working directory |
 | `1-listit` | Lists the contents list of current directory |
 | `2-bring_me_home` | Changes working directory to home |
