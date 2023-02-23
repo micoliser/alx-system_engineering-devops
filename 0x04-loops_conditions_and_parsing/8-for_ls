@@ -2,7 +2,8 @@
 # This script displays the content of current directory
 #+ in a list format
 #+ where only the part after the first dash is displayed
-for dir in `ls`
+LIST=$(ls)
+for dir in $LIST
 do
-	echo $dir | cut -d "-" -f 2-
+	echo "$dir" | cut -d "-" -f 2-
 done
