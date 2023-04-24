@@ -4,7 +4,7 @@ exec {'update':
   path    => '/usr/bin',
 }
 
-package {'ngix':
+package {'nginx':
   ensure   => 'installed',
   name  => 'nginx',
   provider => 'apt',
