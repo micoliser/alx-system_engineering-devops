@@ -14,7 +14,7 @@ package {'ngix':
 file {'default html':
   ensure  => 'present',
   path    => '/var/www/html/index.nginx-debian.html',
-  content => 'Hello World',
+  content => 'Hello World!',
 }
 
 file {'404 error':
