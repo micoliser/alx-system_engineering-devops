@@ -1,5 +1,4 @@
 # This puppet manifest installs and configures nginx server
-
 exec {'update':
   command => 'apt-get -y update',
   path    => '/usr/bin',
@@ -14,13 +13,19 @@ package {'ngix':
 file {'default html':
   ensure  => 'present',
   path    => '/var/www/html/index.nginx-debian.html',
-  content => 'Hello World!',
+  content => "Hello World!\n",
 }
 
 file {'404 error':
   ensure  => 'present',
   path    => '/usr/share/nginx/html/custom_404.html',
-  content => 'Ceci n\'est pas une page',
+  content => "Ceci n\'est pas une page\n",
+}
+
+service { 'nginx':
+  ensure  => 'running',
+  enable  => true,
+  require => Package['nginx'],
 }
 
 exec {'configure':
@@ -29,6 +34,7 @@ exec {'configure':
 }
 
 exec {'restart':
-  command => 'service nginx restart',
-  path    => '/usr/bin',
+  command     => '/usr/sbin/service nginx restart',
+  refreshonly => true,
+  subscribe   => Service['nginx'],
 }
