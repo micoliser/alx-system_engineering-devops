@@ -1,13 +1,13 @@
 # This puppet manifest installs and configures nginx server
 
 exec {'update':
-  command => 'sudo apt-get -y update',
+  command => 'apt-get -y update',
   path    => '/usr/bin',
 }
 
 package {'ngix':
   ensure   => 'installed',
-  command  => 'nginx',
+  name  => 'nginx',
   provider => 'apt',
 }
 
@@ -29,6 +29,6 @@ exec {'configure':
 }
 
 exec {'restart':
-  command => 'sudo service nginx restart',
+  command => 'service nginx restart',
   path    => '/usr/bin',
 }
