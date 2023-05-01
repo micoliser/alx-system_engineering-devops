@@ -1,6 +1,6 @@
 # This puppet manifest installs and configures nginx server
 exec {'update':
-  command => 'apt-get -y update',
+  command => 'sudo apt-get -y update',
   path    => '/usr/bin',
 }
 
@@ -29,17 +29,17 @@ service { 'nginx':
 }
 
 exec {'configure':
-  command => 'sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/micoliser permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default',
+  command => 'sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/micoliser permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default',
   path    => '/usr/bin',
 }
 
 exec { 'custom header':
-  command => "sed -i \"s/^\tlocation \\\/ {/\\tlocation \\\/ {\\n\\t\\tadd_header X-Served-By '${::hostname}';/\" /etc/nginx/sites-available/default",
+  command => "sudo sed -i \"s/^\tlocation \\\/ {/\\tlocation \\\/ {\\n\\t\\tadd_header X-Served-By '${::hostname}';/\" /etc/nginx/sites-available/default",
   path    => '/usr/bin',
 }
 
 exec {'restart':
-  command     => '/usr/sbin/service nginx restart',
+  command     => 'sudo /usr/sbin/service nginx restart',
   refreshonly => true,
   subscribe   => Service['nginx'],
 }
