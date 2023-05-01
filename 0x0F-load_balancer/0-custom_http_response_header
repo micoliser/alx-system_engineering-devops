@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script configures a ngix server to display a custom http response header
+sed -i "s/^\tlocation \/ {/\tlocation \/ {\n\t\tadd_header X-Served-By '$HOSTNAME';/" /etc/nginx/sites-available/default
+service nginx restart
