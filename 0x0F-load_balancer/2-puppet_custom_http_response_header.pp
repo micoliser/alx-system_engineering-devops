@@ -34,8 +34,8 @@ exec {'configure':
 }
 
 exec {'custom header':
-  command  => "sed -i \"s/^\tlocation \/ {/\tlocation \/ {\n\t\tadd_header X-Served-By \'$HOSTNAME\';/\" /etc/nginx/sites-available/default",
-  path     => 'usr/bin',
+  command  => 'sed -i "s/^\tlocation \/ {/\tlocation \/ {\n\t\tadd_header X-Served-By \'$HOSTNAME\';/" /etc/nginx/sites-available/default',
+  path     => '/usr/bin',
 }
 
 exec {'restart':
