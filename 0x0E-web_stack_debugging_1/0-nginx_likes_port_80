@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script fixes a nginx server listening on the wrong port
+sed -i "s/8080 default_server/80 default_server/" /etc/nginx/sites-enabled/default
+service nginx restart
