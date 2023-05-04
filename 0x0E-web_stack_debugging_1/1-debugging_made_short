@@ -2,3 +2,4 @@
 # This script fixes a nginx server listening on the wrong port
 cp /etc/nginx/sites-available/default /etc/sites-enabled/default
 service nginx restart
+kill "$(cat /run/nginx.pid)"
