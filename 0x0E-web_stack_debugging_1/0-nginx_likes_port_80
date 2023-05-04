@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script fixes a nginx server listening on the wrong port
-cp /etc/nginx/sites-available/default /etc/sites-enabled/default
+cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
