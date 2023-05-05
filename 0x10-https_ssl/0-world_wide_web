@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script gets some information about subdomains
+
+function get_domain_info()
+{
+	sub_domain=$(echo "$1" | cut -d '.' -f 1)
+	result=$(dig "$1" | grep -A1 'ANSWER SECTION:' | grep -v ';; ANSWER SECTION')
+	record=$(echo "$result" | awk '{print $4}')
+	ip=$(echo "$result" | awk '{print $5}')
+	echo "The subdomain $sub_domain is a $record record and points to $ip"
+}
+
+if [ $# -eq 2 ];
+then
+	get_domain_info "$2.$1"
+else
+	get_domain_info "www.$1"
+	get_domain_info "lb-01.$1"
+	get_domain_info "web-01.$1"
+	get_domain_info "web-02.$1"
+fi
