@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+chown -R nginx:nginx /var/log/nginx
+chown -R nginx:nginx /var/lib/nginx
+service nginx start
