@@ -1,0 +1,1 @@
+# MySQL setup for server
