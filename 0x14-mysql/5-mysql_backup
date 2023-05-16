@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # This script generates a mysqldump and creates an archive with it
-mysqldump -uroot -p "$1" --all-databases > backup.sql
+mysqldump --all-databases -uroot -p "$1"  > backup.sql
 current_date=$(date "+%d-%m-%Y")
-tar -czf "$current_date".tar.gz backup.sql
+tar -czvf "$current_date".tar.gz backup.sql
