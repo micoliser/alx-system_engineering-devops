@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script makes a nginx server to run as the nginx user and listen on port 8080
 sed -i "s/80 default_server/8080 default_server/" /etc/nginx/sites-enabled/default
 sed -i "s/80 default_server/8080 default_server/" /etc/nginx/sites-available/default
 chown -R nginx:nginx /var/log/nginx
