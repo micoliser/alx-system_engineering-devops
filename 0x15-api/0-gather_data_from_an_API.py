@@ -22,7 +22,7 @@ if __name__ == "__main__":
             if task.get("completed")
     ]
 
-    print("Employee {} is done with tasks({}/{})"
+    print("Employee {} is done with tasks({}/{}):"
           .format(employee_name, len(completed_tasks), len(tasks)))
 
     for task_name in completed_tasks:
