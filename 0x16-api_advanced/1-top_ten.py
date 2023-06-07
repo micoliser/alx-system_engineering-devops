@@ -18,7 +18,7 @@ def top_ten(subreddit):
     }
     res = requests.get(url,
                        headers=headers,
-                       param=params,
+                       params=params,
                        allow_redirects=False)
     if res.status_code == 404:
         print(None)
