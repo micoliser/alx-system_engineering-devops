@@ -9,7 +9,7 @@ import requests
 def recurse(subreddit, hot_list=[], after="", count=0):
     """ returns a list of all hot articles """
 
-    url = "https://www.reddit.com/r/{}/top.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "script for: 0x16.api.advanced: (by micoliser)"
     }
@@ -25,11 +25,11 @@ def recurse(subreddit, hot_list=[], after="", count=0):
     if res.status_code == 404:
         return None
 
-    data = res.json()["data"]
-    after = data["after"]
-    count += data["dist"]
-    for child in data["children"]:
-        hot_list.append(child["data"]["title"])
+    data = res.json().get("data")
+    after = data.get("after")
+    count += data.get("dist")
+    for child in data.get("children"):
+        hot_list.append(child.get("data").get("title"))
 
     if after is not None:
         return recurse(subreddit, hot_list, after, count)

@@ -24,6 +24,6 @@ def top_ten(subreddit):
         print(None)
         return
 
-    data = res.json()["data"]
-    for child in data["children"]:
-        print(child["data"]["title"])
+    data = res.json().get("data")
+    for child in data.get("children"):
+        print(child.get("data").get("title"))
