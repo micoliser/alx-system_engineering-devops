@@ -13,10 +13,17 @@ def top_ten(subreddit):
     headers = {
         "User-Agent": "script for: 0x16.api.advanced: (by micoliser)"
     }
-    res = requests.get(url, headers=headers, allow_redirects=False)
+    params = {
+        "limit": 10
+    }
+    res = requests.get(url,
+                       headers=headers,
+                       param=params,
+                       allow_redirects=False)
     if res.status_code == 404:
         print(None)
+        return
 
-    data = res.json().get("data")
+    data = res.json()["data"]
     for child in data["children"]:
         print(child["data"]["title"])

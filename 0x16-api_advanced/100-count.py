@@ -23,7 +23,7 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
                        allow_redirects=False)
 
     if res.status_code == 404:
-        raise
+        return
 
     data = res.json()["data"]
     after = data["after"]
