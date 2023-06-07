@@ -9,7 +9,7 @@ import requests
 def top_ten(subreddit):
     """ prints the titles of first 10 hot posts """
 
-    url = "https://www.reddit.com/r/{}/top.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "script for: 0x16.api.advanced: (by micoliser)"
     }
